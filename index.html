@@ -175,5 +175,17 @@ Flower petal confetti ONLY on site | All dishes to be washed, dried, and put awa
   setInterval(updateCountdown, 1000); // then every second
 </script>
 
+  <script>
+  window.addEventListener('load', () => {
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+
 </body>
 </html>
