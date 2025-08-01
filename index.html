@@ -5,94 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Wedding of [Names]</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #fdfdfd;
       color: #333;
+    }
+    header {
+      background: linear-gradient(rgba(88, 15, 65, 0.6), rgba(21, 71, 52, 0.6)), url('images/photo1.jpg') no-repeat center center/cover;
+      color: white;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4em;
+    }
+    header p {
+      font-size: 1.5em;
     }
     .section {
       padding: 60px 20px;
     }
-    .bg-plum {
-      background-color: #580F41;
-      color: white;
-    }
-    .bg-green {
-      background-color: #154734;
-      color: white;
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
     }
     .photo-gallery img {
-      max-width: 100%;
-      height: auto;
       border-radius: 8px;
-      margin-bottom: 20px;
+    }
+    footer {
+      background-color: #580F41;
+      color: white;
+      padding: 30px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <header class="bg-plum text-center py-5">
-    <h1 class="display-4">[Bride's Name] & [Groom's Name]</h1>
-    <p class="lead">We're getting married!</p>
-  </header>
+<header>
+  <h1>[Bride's Name] & [Groom's Name]</h1>
+  <p>We're getting married!</p>
+  <p><strong>October 5, 2025</strong></p>
+</header>
 
-  <section class="section text-center">
-    <h2>Wedding Venue</h2>
-    <p><strong>Location:</strong> [Venue Name & Address]</p>
-    <p><strong>Date & Time:</strong> [Wedding Date, e.g. 5th October 2025, 2:00PM]</p>
-    <p><strong>Directions:</strong> <a href="[Google Maps Link]" target="_blank">View on Map</a></p>
-  </section>
+<main class="container">
 
-  <section class="section bg-green text-center">
-    <h2>Accommodation</h2>
-    <p>Nearby hotel options:</p>
-    <ul class="list-unstyled">
-      <li>[Hotel 1] – [Details]</li>
-      <li>[Hotel 2] – [Details]</li>
-      <li>[Hotel 3] – [Details]</li>
-    </ul>
-  </section>
-
-  <section class="section text-center">
-    <h2>Dress Code</h2>
-    <p>Please come dressed in your finest semi-formal attire. Plum and dark green accents are welcome but not required!</p>
-  </section>
-
-  <section class="section bg-green text-center">
-    <h2>Order of the Day</h2>
-    <ul class="list-unstyled">
-      <li><strong>2:00PM</strong> - Ceremony</li>
-      <li><strong>3:30PM</strong> - Drinks & Photos</li>
-      <li><strong>5:00PM</strong> - Wedding Breakfast</li>
-      <li><strong>7:30PM</strong> - Evening Guests Arrive</li>
-      <li><strong>8:00PM</strong> - First Dance & Party</li>
-    </ul>
-  </section>
-
-  <section class="section text-center">
-    <h2>Wedding Gifts</h2>
-    <p>Your presence is the greatest gift of all. But if you'd like to contribute to our honeymoon or home fund, we'll be so grateful. Gift details can be found here:</p>
-    <p><a href="[Gift Registry URL]" target="_blank">Our Gift Registry</a></p>
-  </section>
-
-  <section class="section bg-light text-center photo-gallery">
-    <h2>Gallery</h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-6 col-md-4"><img src="photo1.jpg" alt="Couple Photo"></div>
-        <div class="col-6 col-md-4"><img src="photo2.jpg" alt="Couple Photo"></div>
-        <div class="col-6 col-md-4"><img src="photo3.jpg" alt="Couple Photo"></div>
-        <div class="col-6 col-md-4"><img src="photo4.jpg" alt="Couple Photo"></div>
-        <div class="col-6 col-md-4"><img src="photo5.jpg" alt="Couple Photo"></div>
-        <div class="col-6 col-md-4"><img src="photo6.jpg" alt="Couple Photo"></div>
-      </div>
+  <section class="section" data-aos="fade-up">
+    <div class="card p-4 text-center">
+      <h2>Wedding Venue</h2>
+      <p><strong>Location:</strong> [Venue Name & Address]</p>
+      <p><strong>Time:</strong> 2:00PM</p>
+      <p><a href="[Google Maps Link]" target="_blank">View on Map</a></p>
     </div>
   </section>
 
-  <footer class="bg-plum text-center py-4">
-    <p class="mb-0">With love, [Bride & Groom's Names] – We can't wait to celebrate with you! ❤️</p>
-  </footer>
+  <section class="section" data-aos="fade-up">
+    <div class="card p-4 text-center">
+      <h2>Accommodation</h2>
+      <ul class="list-unstyled">
+        <li>[Hotel 1] – [Details]</li>
+        <li>[Hotel 2] – [Details]</li>
+        <li>[Hotel 3] – [Details]</li>
+      </ul>
+    </div>
+  </section>
 
+  <section class="section" data-aos="fade-up">
+    <div class="card p-4 text-center">
+      <h2>Dress Code</h2>
+      <p>Please come dressed in your finest semi-formal attire.<br>Plum and dark green accents are welcome but not required!</p>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <div class="card p-4 text-center">
+      <h2>Order of the Day</h2>
+      <ul class="list-unstyled">
+        <li><strong>2:00PM</strong> - Ceremony</li>
+        <li><strong>3:30PM</strong> - Drinks & Photos</li>
+        <li><strong>5:00PM</strong> - Wedding Breakfast</li>
+        <li><strong>7:30PM</strong> - Evening Guests Arrive</li>
+        <li><strong>8:00PM</strong> - First Dance & Party</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <div class="card p-4 text-center">
+      <h2>Wedding Gifts</h2>
+      <p>Your presence is the greatest gift of all. If you'd like to contribute to our honeymoon or home fund, please see our gift list:</p>
+      <p><a href="[Gift Registry URL]" target="_blank">View Gift Registry</a></p>
+    </div>
+  </section>
+
+  <section class="section photo-gallery text-center" data-aos="fade-up">
+    <h2>Gallery</h2>
+    <div class="row">
+      <div class="col-6 col-md-4 mb-4"><img src="images/photo2.jpg" class="img-fluid" alt="Photo"></div>
+      <div class="col-6 col-md-4 mb-4"><img src="images/photo3.jpg" class="img-fluid" alt="Photo"></div>
+      <div class="col-6 col-md-4 mb-4"><img src="images/photo4.jpg" class="img-fluid" alt="Photo"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>With love, [Bride & Groom's Names] – We can't wait to celebrate with you! ❤️</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 </body>
 </html>
