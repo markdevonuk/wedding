@@ -69,6 +69,14 @@
     </div>
   </section>
 
+  <section class="section text-center" data-aos="fade-up">
+  <div class="card p-4">
+    <h2>Countdown to Our Big Day</h2>
+    <h3 id="countdown" style="font-size: 2rem; margin-top: 20px;"></h3>
+  </div>
+</section>
+
+
   <section class="section" data-aos="fade-up">
     <div class="card p-4 text-center">
       <h2>Dress Code</h2>
@@ -136,5 +144,30 @@ Please avoid our chosen wedding colours of dark green/plum.</p>
 <script>
   AOS.init();
 </script>
+
+  <script>
+  function updateCountdown() {
+    const weddingDate = new Date("2026-02-21T13:00:00+01:00").getTime(); // 1 PM GMT+1
+    const now = new Date().getTime();
+    const distance = weddingDate - now;
+
+    if (distance < 0) {
+      document.getElementById("countdown").innerText = "We're Married! 💍";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerText =
+      `${days} days ${hours}h ${minutes}m ${seconds}s`;
+  }
+
+  updateCountdown(); // run immediately
+  setInterval(updateCountdown, 1000); // then every second
+</script>
+
 </body>
 </html>
