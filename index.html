@@ -2,182 +2,986 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Wedding of Jack and Hollie</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jack &amp; Hollie — 21.02.2026</title>
+  <meta name="description" content="The wedding of Jack and Hollie — 21st February 2026 at Comrie Croft, Crieff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Great+Vibes&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif;
-      background-color: #fdfdfd;
-      color: #333;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-deep: #154734;
+      --green-sage: #2D6A4F;
+      --green-light: #95D5B2;
+      --green-tint: #EBF3EB;
+      --purple-deep: #580F41;
+      --purple-mid: #8B5E83;
+      --purple-light: #C9A6C1;
+      --purple-tint: #F5EBF2;
+      --cream: #FFFAF3;
+      --cream-dark: #F0E6D3;
+      --gold: #C4A265;
+      --text: #2C2C2C;
+      --text-light: #5A5A5A;
+      --white: #FFFFFF;
     }
-    header {
-      background: linear-gradient(rgba(88, 15, 65, 0.6), rgba(21, 71, 52, 0.6)), url('images/photo5.jpg') no-repeat center center/cover;
-      color: white;
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.75;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      position: relative;
       height: 100vh;
+      height: 100dvh;
+      min-height: 580px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
+      color: var(--white);
+      overflow: hidden;
     }
-    header h1 {
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/photo6.jpg') no-repeat center center;
+      background-size: cover;
+      transform: scale(1.05);
+      animation: heroZoom 25s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.15); }
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(88, 15, 65, 0.6) 0%,
+        rgba(45, 30, 50, 0.5) 40%,
+        rgba(21, 71, 52, 0.6) 100%
+      );
+    }
+
+    .hero-vignette {
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 150px rgba(0,0,0,0.3);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+    }
+
+    .hero-names {
       font-family: 'Great Vibes', cursive;
-      font-size: 4em;
+      font-size: clamp(3.2rem, 11vw, 6.5rem);
+      line-height: 1.15;
+      text-shadow: 0 3px 30px rgba(0,0,0,0.25);
+      margin-bottom: 0.15em;
     }
-    header p {
-      font-size: 1.5em;
+
+    .hero-ampersand {
+      display: inline-block;
+      font-size: 0.85em;
+      margin: 0 0.05em;
     }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.8rem;
+      opacity: 0.92;
+    }
+
+    .hero-countdown {
+      font-family: 'Jost', sans-serif;
+      font-size: clamp(1.1rem, 3.5vw, 1.8rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.2rem;
+      min-height: 1.5em;
+    }
+
+    .hero-date {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(0.95rem, 2.5vw, 1.25rem);
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border-top: 1px solid rgba(255,255,255,0.35);
+      border-bottom: 1px solid rgba(255,255,255,0.35);
+      padding: 0.55em 2em;
+      display: inline-block;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0.6;
+      animation: gentleBounce 2.5s ease-in-out infinite;
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-8px); }
+    }
+
+    .scroll-hint svg { width: 28px; height: 28px; }
+
+    .hero-content > * {
+      opacity: 0;
+      transform: translateY(18px);
+      animation: fadeUp 0.9s ease forwards;
+    }
+    .hero-content > *:nth-child(1) { animation-delay: 0.4s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.7s; }
+    .hero-content > *:nth-child(3) { animation-delay: 1.0s; }
+    .hero-content > *:nth-child(4) { animation-delay: 1.3s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ============================================
+       STICKY NAV
+    ============================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255, 250, 243, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(21, 71, 52, 0.08);
+      transform: translateY(-100%);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav.visible { transform: translateY(0); }
+
+    .nav-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+      padding: 0 24px;
+    }
+
+    .nav-brand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.4rem;
+      color: var(--purple-deep);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 1.4rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--purple-deep); }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+    }
+
+    /* ============================================
+       SECTION LAYOUT
+    ============================================ */
     .section {
-      padding: 20px 20px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 24px 10px;
     }
-    .card {
-      border: 2px solid #580F41;
-  border-left: 10px solid #154734;
-      
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      margin-bottom: 20px;
-    }
-    .photo-gallery img {
-      border-radius: 8px;
-    }
-    footer {
-      background-color: #580F41;
-      color: white;
-      padding: 30px;
+
+    .section-title {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--green-deep);
       text-align: center;
+      margin-bottom: 0.25em;
+      letter-spacing: 0.02em;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 2rem;
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      width: 55px;
+      height: 1px;
+      background: linear-gradient(to var(--dir, right), transparent, var(--purple-light));
+    }
+    .ornament::before { --dir: right; }
+    .ornament::after  { --dir: left; }
+
+    .ornament .dot {
+      width: 7px; height: 7px;
+      background: var(--purple-deep);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    /* ============================================
+       CARDS
+    ============================================ */
+    .card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: clamp(28px, 5vw, 44px);
+      box-shadow:
+        0 1px 3px rgba(0,0,0,0.04),
+        0 8px 30px rgba(0,0,0,0.06);
+      border: 1px solid rgba(21, 71, 52, 0.06);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--text-light);
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1em;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+    .card strong { color: var(--text); font-weight: 500; }
+
+    /* ============================================
+       VENUE
+    ============================================ */
+    .venue-name {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 0.15em;
+    }
+
+    .venue-address {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 0.2em;
+    }
+
+    .venue-time {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--purple-deep);
+      margin: 0.6em 0;
+    }
+
+    .btn-map {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--green-deep);
+      padding: 0.6em 2em;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: all 0.3s ease;
+      margin-top: 0.4em;
+    }
+
+    .btn-map:hover {
+      background: var(--green-sage);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(21, 71, 52, 0.3);
+    }
+
+    .btn-map svg { width: 16px; height: 16px; }
+
+    /* ============================================
+       DRESS CODE
+    ============================================ */
+    .color-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 1.6rem 0 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .swatch-circle {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.06);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .swatch:hover .swatch-circle { transform: scale(1.12); }
+
+    .swatch-label {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      font-weight: 400;
+    }
+
+    .avoid-badge {
+      display: inline-block;
+      background: var(--purple-tint);
+      border: 1px solid var(--purple-light);
+      border-radius: 10px;
+      padding: 0.6em 1.4em;
+      font-size: 0.9rem;
+      color: var(--purple-deep);
+      margin-top: 0.6em;
+    }
+
+    /* ============================================
+       TIMELINE
+    ============================================ */
+    .tbc-badge {
+      display: inline-block;
+      font-family: 'Cormorant Garant', serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--purple-mid);
+      background: var(--purple-tint);
+      padding: 0.25em 1.1em;
+      border-radius: 20px;
+      margin-bottom: 1.6rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 44px;
+      margin: 0 auto 2rem;
+      max-width: 520px;
+      text-align: left;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 13px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--green-deep), var(--purple-deep));
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.6rem;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 5px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 2.5px solid var(--green-deep);
+      z-index: 1;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .timeline-item:hover::before {
+      background: var(--purple-deep);
+      border-color: var(--purple-deep);
+    }
+
+    .timeline-time {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--green-deep);
+      line-height: 1.3;
+    }
+
+    .timeline-event {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ============================================
+       DRINKS CALLOUT
+    ============================================ */
+    .drinks-callout {
+      background: linear-gradient(135deg, var(--green-tint) 0%, var(--purple-tint) 100%);
+      border-radius: 14px;
+      padding: 24px 28px;
+      margin: 2rem auto;
+      max-width: 550px;
+      text-align: center;
+      border: 1px solid rgba(21,71,52,0.08);
+    }
+
+    .drinks-callout p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    .drinks-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ============================================
+       FOOD MENU
+    ============================================ */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 500px) {
+      .menu-grid { grid-template-columns: 1fr; }
+    }
+
+    .menu-box {
+      background: var(--green-tint);
+      border-radius: 14px;
+      padding: 24px 20px;
+      border: 1px solid rgba(21,71,52,0.06);
+    }
+
+    .menu-box h4 {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      margin-bottom: 0.7rem;
+    }
+
+    .menu-box ul { list-style: none; }
+
+    .menu-box li {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      padding: 0.35em 0;
+      border-bottom: 1px solid rgba(21,71,52,0.06);
+    }
+
+    .menu-box li:last-child { border-bottom: none; }
+
+    .dietary-note {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--green-sage);
+      margin-top: 0.5em;
+    }
+
+    /* ============================================
+       IMAGE BREAK
+    ============================================ */
+    .image-break {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+      margin: 30px 0;
+    }
+
+    .image-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+
+    .image-break::before,
+    .image-break::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 60px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .image-break::before {
+      top: 0;
+      background: linear-gradient(to bottom, var(--cream), transparent);
+    }
+
+    .image-break::after {
+      bottom: 0;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+
+    /* ============================================
+       ACCOMMODATION
+    ============================================ */
+    .venue-rules {
+      background: var(--cream-dark);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+
+    .venue-rules-title {
+      font-family: 'Cormorant Garant', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--purple-deep);
+      margin-bottom: 0.7rem;
+      text-align: center;
+    }
+
+    .venue-rules ul { list-style: none; }
+
+    .venue-rules li {
+      position: relative;
+      padding-left: 1.4em;
+      margin-bottom: 0.45em;
+      font-size: 0.88rem;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    .venue-rules li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--purple-mid);
+    }
+
+    /* ============================================
+       GALLERY
+    ============================================ */
+    .gallery {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px 20px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+      gap: 10px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 14px;
+      aspect-ratio: 1;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.25, 0, 0.25, 1);
+    }
+
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(88, 15, 65, 0);
+      transition: background 0.4s;
+      border-radius: 14px;
+    }
+
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item:hover::after { background: rgba(88, 15, 65, 0.08); }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+      aspect-ratio: auto;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item.tall {
+        grid-row: span 1;
+        aspect-ratio: 1;
+      }
+    }
+
+    /* ============================================
+       GIFTS
+    ============================================ */
+    .gift-icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--purple-deep) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 55px 24px 45px;
+      margin-top: 30px;
+    }
+
+    .footer-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      margin-bottom: 0.3em;
+      line-height: 1.2;
+    }
+
+    .footer p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+
+    .footer-heart {
+      display: inline-block;
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.15); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.1); }
+      56% { transform: scale(1); }
+    }
+
+    /* ============================================
+       SCROLL REVEAL
+    ============================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s ease, transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================
+       GLOBAL UTILITY
+    ============================================ */
+    a { color: var(--green-deep); }
+
+    ::selection {
+      background: var(--purple-light);
+      color: var(--white);
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 40px 18px 10px; }
+      .card { padding: 24px 20px; border-radius: 14px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Jack & Hollie</h1>
-  <p>We're getting married!</p>
-  <p><h3 id="countdown" style="font-size: 2rem; margin-top: 20px;"></h3></p>
-  <p><strong>21st February, 2026</strong></p>
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1 class="hero-names">Jack <span class="hero-ampersand">&amp;</span> Hollie</h1>
+    <p class="hero-subtitle">We're getting married!</p>
+    <p class="hero-countdown" id="countdown" aria-live="polite"></p>
+    <p class="hero-date">21st February, 2026</p>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
 </header>
 
-<main class="container">
+<!-- ========== NAV ========== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">J &amp; H</a>
+    <ul class="nav-links">
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#day">Our Day</a></li>
+      <li><a href="#gifts">Gifts</a></li>
+      <li><a href="#accommodation">Stay</a></li>
+      <li><a href="#gallery">Photos</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <section class="section" data-aos="fade-up">
-    <div class="card p-4 text-center">
-      <h2>Wedding Venue</h2>
-      <p><strong>Location:</strong> Comrie Croft, Braincroft, Crieff. PH7 4JZ</p>
-      <p><strong>Time:</strong> 1:00PM</p>
-      <p><a href="https://maps.app.goo.gl/peeTDMcw8gaSoJVcA" target="_blank">View on Map</a></p>
+<!-- ========== VENUE ========== -->
+<section class="section reveal" id="venue">
+  <h2 class="section-title">Wedding Venue</h2>
+  <div class="ornament"><span class="dot"></span></div>
+  <div class="card">
+    <p class="venue-name">Comrie Croft</p>
+    <p class="venue-address">Braincroft, Crieff &middot; PH7 4JZ</p>
+    <p class="venue-time">Ceremony at 1:00 PM</p>
+    <a href="https://maps.app.goo.gl/peeTDMcw8gaSoJVcA" target="_blank" rel="noopener" class="btn-map">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      View on Map
+    </a>
+  </div>
+</section>
+
+<!-- ========== DRESS CODE ========== -->
+<section class="section reveal" id="dresscode">
+  <h2 class="section-title">Dress Code</h2>
+  <div class="ornament"><span class="dot"></span></div>
+  <div class="card">
+    <p>We want you to be comfortable at our wedding so please wear what you enjoy! Whether that be your
+      best 3-piece suit, a cocktail dress or maybe that jumpsuit you've been wanting to wear. We do,
+      however, ask that you not wear jeans and trainers for the big day.</p>
+    <p>To fit in with the venue and season, we would recommend outfits in your typical winter colours:</p>
+
+    <div class="color-swatches">
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #C0C0C0;"></div>
+        <span class="swatch-label">Silver</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #808080;"></div>
+        <span class="swatch-label">Grey</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #1B3A5C;"></div>
+        <span class="swatch-label">Dark Blue</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-circle" style="background: #722F37;"></div>
+        <span class="swatch-label">Burgundy</span>
+      </div>
     </div>
-  </section>
 
+    <div class="avoid-badge">Please avoid our wedding colours &mdash; dark green &amp; dark purple</div>
+  </div>
+</section>
 
+<!-- ========== ORDER OF THE DAY ========== -->
+<section class="section reveal" id="day">
+  <h2 class="section-title">Order of the Day</h2>
+  <div class="ornament"><span class="dot"></span></div>
+  <div class="card">
+    <span class="tbc-badge">Times to be confirmed</span>
 
-  <section class="section" data-aos="fade-up">
-    <div class="card p-4 text-center">
-      <h2>Dress Code</h2>
-      <p>We want you to be comfortable at our wedding so please wear what you enjoy! Whether that be your 
-        best 3-piece suit, a cocktail dress or maybe that jumpsuit you’ve been wanting to wear. We do, 
-        however, ask that you not wear jeans and trainers for the big day. To fit in with the venue and season, 
-        we would recommend outfits in your typical winter colours:<br><br>
-Silver | Grey | Dark blue | Burgundy<br><br>
-Please avoid our chosen wedding colours of dark green and dark purple.</p>
-
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">12:30 PM</div>
+        <div class="timeline-event">Guests arrive and get seated</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">1:00 PM</div>
+        <div class="timeline-event">Ceremony starts</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">2:00 PM</div>
+        <div class="timeline-event">Welcome drinks and bar opens</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">2:30 PM</div>
+        <div class="timeline-event">Canapés served &amp; family photos</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">4:00 PM</div>
+        <div class="timeline-event">Dinner is served, speeches</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">6:00 PM</div>
+        <div class="timeline-event">First dance and the party begins</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">8:30 PM</div>
+        <div class="timeline-event">Evening food</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">11:00 PM</div>
+        <div class="timeline-event">Retire to The Steading</div>
+      </div>
     </div>
-  </section>
-  
-  <section class="section" data-aos="fade-up">
-    <div class="card p-4 text-center">
-      <h2>Order of the Day</h2>
-<p>To be confirmed</p>
 
-      <ul class="list-unstyled">
-        <li><strong>12:30PM</strong> - Guests arrive and get seated</li>
-        <li><strong>1:00PM</strong> - Ceremony starts</li>
-        <li><strong>2:00PM</strong> - Welcome drinks and bar opens</li>
-         <li><strong>2:30PM</strong> - Canapes served & family photos</li>
-        <li><strong>4:00PM</strong> - Dinner is served, speeches</li>
-        <li><strong>6:00PM</strong> - First dance and the party begins</li>
-        <li><strong>8:30PM</strong> - Evening food</li>
-        <li><strong>11:00PM</strong> - Retire to The Steading</li>
+    <div class="drinks-callout">
+      <div class="drinks-icon">🥂</div>
+      <p>The bride and groom have each created a special 'cocktail hour' drink for you all to enjoy, with
+        both an alcoholic and non-alcoholic choice. Bottles of wine are provided on the tables for the
+        evening meal then any additional drinks you would like can be bought at the bar.</p>
+    </div>
+
+    <p class="dietary-note">Vegan and Gluten Free options available throughout the day</p>
+
+    <div class="menu-grid">
+      <div class="menu-box">
+        <h4>Canapés</h4>
+        <ul>
+          <li>Selection of mini quiches</li>
+          <li>Mini chicken satay</li>
+          <li>Mini vegetable pakoras</li>
+        </ul>
+      </div>
+      <div class="menu-box">
+        <h4>Main Meal</h4>
+        <ul>
+          <li>Premium burgers</li>
+          <li>Large hot dogs</li>
+          <li>Halloumi wraps</li>
+          <li>Pulled pork</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5em;">All served with various sides</p>
+  </div>
+</section>
+
+<!-- ========== IMAGE BREAK ========== -->
+<div class="image-break reveal">
+  <img src="images/photo5.jpg" alt="Jack and Hollie" loading="lazy">
+</div>
+
+<!-- ========== GIFTS ========== -->
+<section class="section reveal" id="gifts">
+  <h2 class="section-title">Wedding Gifts</h2>
+  <div class="ornament"><span class="dot"></span></div>
+  <div class="card">
+    <span class="gift-icon">🤍</span>
+    <p>Your presence is the greatest gift of all. However if you do wish to bring a gift, a donation
+      towards our future endeavours together would be greatly appreciated.</p>
+  </div>
+</section>
+
+<!-- ========== ACCOMMODATION ========== -->
+<section class="section reveal" id="accommodation">
+  <h2 class="section-title">Accommodation</h2>
+  <div class="ornament"><span class="dot"></span></div>
+  <div class="card">
+    <p>Accommodation is available on-site for guests who have requested this on their returned RSVP.
+      The rooms in the lodge are shared and therefore we are unable to provide private rooms however each room has
+      its own en-suite facilities. The ceremony and reception venue are just a few steps away across the courtyard.</p>
+
+    <p>If you have requested a room on-site for the weekend, please contact either the bride or groom for details on making payments.</p>
+
+    <div class="venue-rules">
+      <p class="venue-rules-title">Venue Housekeeping</p>
+      <ul>
+        <li>Double beds are made but bunk beds are not &mdash; guests are responsible for making bunk beds up. If a bunk bed is not made, a charge of £30 per bed will apply for washing of the mattress protector, duvet and pillow protector.</li>
+        <li>Flower petal confetti ONLY on site</li>
+        <li>All dishes to be washed, dried, and put away on departure</li>
+        <li>All waste taken out and put in appropriate recycling bins</li>
+        <li>Make sure all keys are present (they cost £10 to replace)</li>
+        <li>All beds to be stripped and linen left in rooms</li>
+        <li>All bedrooms to be empty by 10 AM</li>
+        <li>Everywhere to be empty by 1 PM</li>
       </ul>
-<p>The bride and groom have each created a special ‘cocktail hour’ drink for you all to enjoy, with 
-  both an alcoholic and non-alcoholic choice. Bottles of wine are provided on the tables for the 
-  evening meal then any additional drinks you would like can be bought at the bar.</p>
-
-      <p>Food - Vegan and Gluten Free options available throughout the day</p>
-
-      <p>Canapes</p>
-
-      <ul class="list-unstyled">
-        <li><strong>Selectiopn of mini quiches</strong></li>
-        <li><strong>Mini chicken satay</strong></li>
-        <li><strong>Mini vegatable pajoras</strong></li>
-   </ul>
-   
-
-         <p>Main meal (all served with various sides)</p>
-
-      <ul class="list-unstyled">
-        <li><strong>Premium burgers</strong></li>
-        <li><strong>Large hot dogs</strong></li>
-        <li><strong>Halloumi wraps</strong></li>
-        <li><strong>Pulled pork</strong></li>
-   </ul>
-  
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="section" data-aos="fade-up">
-    <div class="card p-4 text-center">
-      <h2>Wedding Gifts</h2>
-      <p>Your presence is the greatest gift of all. However if you do wish to bring a gift, a donation towards our future endeavours together would be greatly appreciated.
-</p>
+<!-- ========== GALLERY ========== -->
+<section class="section reveal" id="gallery">
+  <h2 class="section-title">Our Moments</h2>
+  <div class="ornament"><span class="dot"></span></div>
+</section>
+<div class="gallery reveal">
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img src="images/photo6.jpg" alt="Jack and Hollie on the beach" loading="lazy">
     </div>
-  </section>
-
-    <section class="section" data-aos="fade-up">
-    <div class="card p-4 text-center">
-      <h2>Accomodation details</h2>
-      <p>Accommodation is available on-site for guests who have requested this on their returned RSVP. 
-        The rooms in the lodge are shared and therefore we are unable to provide private rooms however each room has 
-        its own en-suite facilities. The ceremony and reception venue are just a few steps away across the courtyard.</p>
-
-<p>If you have requested a room on-site for the weekend, please contact either the bride or groom for details on making payments.
-</p>
-      <p><i>The venue has requested the following: Beds, Double beds are made but bunks beds are not, guests are responsible for making the bunks beds up, if they do not make their 
-        bed a charge of £30 per bed will be charged to them for the washing of the mattress protector, duvet and pillow protector |
-Flower petal confetti ONLY on site | All dishes to be washed, dried, and put away on departure | All waste taken out and put in appropriate recycling bins | Make sure all keys are present (they cost £10 to replace) 
- | All beds to be stripped and linen left in rooms | All bedrooms to be empty for 10am | Everywhere to be empty at 1pm</i>
-</p>
+    <div class="gallery-item">
+      <img src="images/photo1.jpg" alt="Jack and Hollie outdoors" loading="lazy">
     </div>
-  </section>
-
-  <section class="section photo-gallery text-center" data-aos="fade-up">
-    
-    <div class="row">
-      <div class="col-6 col-md-4 mb-4"><img src="images/photo2.jpg" class="img-fluid" alt="Photo"></div>
-      <div class="col-6 col-md-4 mb-4"><img src="images/photo4.jpg" class="img-fluid" alt="Photo"></div>
-      <div class="col-6 col-md-4 mb-4"><img src="images/photo6.jpg" class="img-fluid" alt="Photo"></div>
+    <div class="gallery-item">
+      <img src="images/photo3.jpg" alt="Jack and Hollie in winter" loading="lazy">
     </div>
-  </section>
+    <div class="gallery-item">
+      <img src="images/photo5.jpg" alt="Jack and Hollie dressed up" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo2.jpg" alt="Jack and Hollie together" loading="lazy">
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo4.jpg" alt="Jack and Hollie selfie" loading="lazy">
+    </div>
+  </div>
+</div>
 
-</main>
-
-<footer>
-  <p>With love, Jack & Hollie – We can't wait to celebrate with you! ❤️</p>
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p class="footer-names">Jack &amp; Hollie</p>
+  <p>We can't wait to celebrate with you! <span class="footer-heart">❤️</span></p>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-  AOS.init();
-</script>
-
-  <script>
+  /* ===== COUNTDOWN ===== */
   function updateCountdown() {
-    const weddingDate = new Date("2026-02-21T13:00:00+01:00").getTime(); // 1 PM GMT+1
+    const weddingDate = new Date("2026-02-21T13:00:00+01:00").getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
 
@@ -195,21 +999,61 @@ Flower petal confetti ONLY on site | All dishes to be washed, dried, and put awa
       `${days} days ${hours}h ${minutes}m ${seconds}s`;
   }
 
-  updateCountdown(); // run immediately
-  setInterval(updateCountdown, 1000); // then every second
-</script>
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-  <script>
+  /* ===== STICKY NAV ===== */
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    if (currentScroll > window.innerHeight * 0.8) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
+    }
+    lastScroll = currentScroll;
+  }, { passive: true });
+
+  /* ===== SCROLL REVEAL ===== */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  reveals.forEach(el => observer.observe(el));
+
+  /* ===== CONFETTI ===== */
   window.addEventListener('load', () => {
-    confetti({
-      particleCount: 150,
-      spread: 100,
-      origin: { y: 0.6 }
+    if (typeof confetti === 'function') {
+      setTimeout(() => {
+        confetti({
+          particleCount: 120,
+          spread: 90,
+          origin: { y: 0.6 },
+          colors: ['#154734', '#580F41', '#C4A265', '#95D5B2', '#C9A6C1']
+        });
+      }, 600);
+    }
+  });
+
+  /* ===== SMOOTH ANCHOR SCROLL ===== */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 
 </body>
 </html>
